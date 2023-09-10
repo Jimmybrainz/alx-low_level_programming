@@ -14,12 +14,14 @@ int main(void)
 	{
 		putchar(n);
 
-		if (n <= 57)
+		if (n <= 56)
 
 		putchar(44);
 		putchar(32);
 
 	}
+
+		putchar('\n');
 
 	return (0);
 
