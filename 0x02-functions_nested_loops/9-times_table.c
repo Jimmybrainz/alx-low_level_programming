@@ -4,38 +4,38 @@
  */
 void times_table(void)
 {
-	int multiplier, x, result, tens, units;
+	int x, y, z, u, d;
 
-	for (multiplier = 0; multiplier < 10; multiplier++)
+	for (x = 0; x < 9; x++)
 	{
-		_putchar('0');
-		_putchar(',');
-		_putchar(' ');
-
-		for (x = 1; x < 10; x++)
+		for (y = 0; y < 9; y++)
 		{
-			result = multiplier * x;
-			if (result < 10)
+			z = x * y;
+
+			if (z > 9)
 			{
-				_putchar(' ');
-				_putchar(result + 48);
+				u = z % 10;
+				d = (z - u) / 10;
 
-
+				_putchar(44);
+				_putchar(32);
+				_putchar(d + '0');
+				_putchar(u + '0');
 			}
 			else
 			{
-				tens = result / 10;
-				units = result % 10;
-				_putchar(tens + 48);
-				_putchar(units + 48);
+				if (y != 0)
+				{
+					_putchar(44);
+					_putchar(32);
+					_putchar(32);
+				}
 
+				_putchar(z + '0');
 			}
-			if (x < 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			_putchar('\n');
+
 		}
+
+			_putchar('\n');
 	}
 }
