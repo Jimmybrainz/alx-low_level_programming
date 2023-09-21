@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_number - prints an integer using _putchar
- *@n: The integer to be printed
-*/
+ * print_number - function that prints an integer.
+ * @n: integer to be printed
+ */
 
 void print_number(int n)
 {
@@ -13,17 +13,17 @@ void print_number(int n)
 	if (n < 0)
 	{
 		num = -n;
-		_putchar('-'); /*print minus sign for negative numbers */
+		_putchar('-'); /* print -ve sign if number is negative */
 	}
 	else
 	{
 		num = n;
 	}
-
+	/* check to see if there are more digits to print */
 	if (num / 10)
 	{
-		print_number(n / 10); /* Recursively print the remaining digits */
+		print_number(num / 10); /* recursive call to print remaining digits */
 	}
 
-	_putchar('0' + (n % 10)); /* Print the last digit */
+	_putchar('0' + (num % 10)); /* print last digit */
 }
