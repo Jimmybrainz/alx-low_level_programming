@@ -9,19 +9,16 @@
 
 char *_strchr(char *s, char c)
 {
-	for (; *s != '\0'; s++)
+	unsigned int len;
+
+	for (len = 0; s[len] != '\0'; len++)
 	{
-		if (*s == c)
+		if (s[len] == c)
 		{
 			/*Found the character, return it's address*/
-			return (s);
+			return (s + len);
 		}
-		if (c == '\0')
-		{
-			return (s);
-		}
-		else
-			/*Character not found*/
-			return (NULL);
 	}
+	/*Character not found*/
+	return (NULL);
 }
