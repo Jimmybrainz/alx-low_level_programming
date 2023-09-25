@@ -19,6 +19,11 @@ char *_strchr(char *s, char c)
 			return (s + len);
 		}
 	}
+	if (s[len] == c)
+	{
+		return (s + len);
+	}
+	else
 	/*Character not found*/
 	return (NULL);
 }
