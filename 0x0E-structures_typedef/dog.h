@@ -18,10 +18,6 @@ struct dog
 	char *owner;
 };
 
-/**
- *dog_t - new name for the type struct dog
- */
-
 typedef struct dog dog_t;
 
 void print_dog(struct dog *d);
