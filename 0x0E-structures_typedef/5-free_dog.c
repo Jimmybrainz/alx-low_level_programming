@@ -7,7 +7,7 @@
 
 void free_dog(dog_t *d)
 {
-	if (d == NULL)
+	if (d != NULL)
 	{
 		/*Free the memory for the name and owner strings*/
 		free(d->owner);
