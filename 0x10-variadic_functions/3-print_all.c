@@ -8,16 +8,16 @@
 void print_all(const char * const format, ...)
 {
 	char *str;
-	unsigned int x = 0;
+	unsigned int i = 0;
 	int num;
 	char c;
 	float f;
 	va_list mychars;
 
 	va_start(mychars, format);
-	while (format && format[x])
+	while (format && format[i])
 	{
-		switch (format[x])
+		switch (format[i])
 		{
 		case 'c':
 			c = va_arg(mychars, int);
@@ -39,11 +39,11 @@ void print_all(const char * const format, ...)
 				printf("%s", str);
 			break;
 		default:
-			x++;
+			i++;
 			continue;	}
-		if (format[x + 1] != '\0')
+		if (format[i + 1] != '\0')
 			printf(", ");
-		x++;
+		i++;
 	}
 	va_end(mychars);
 	printf("\n");
