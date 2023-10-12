@@ -11,62 +11,51 @@ void print_all(const char * const format, ...);
 
 void print_all(const char * const format, ...)
 {
-	char *s;
-	int i = 0;
+	char *str;
+	unsigned int x = 0;
+	int num;
 	char c;
 	float f;
-	const char *format_ptr = format;
-	int is_first = 1;
 	va_list mychars;
 
 	va_start(mychars, format);
 
-	while (*format_ptr)
+	while (format && format[x])
 	{
-		if (*format_ptr == 'c')
+		switch (format[x])
 		{
-			c = (char) va_arg(mychars, int);
-			if (!is_first)
-			{
-				printf(", ");
-			}
+			case 'c':
+			c = va_arg(mychars, int);
 			printf("%c", c);
-		}
-		else if (*format_ptr == 'i')
-		{
-			i = va_arg(mychars, int);
-			if (!is_first)
-			{
-				printf(", ");
-			}
-			printf("%d", i);
-		}
-		else if (*format_ptr == 'f')
-		{
+			break;
+
+			case 'i':
+			num = va_arg(mychars, int);
+			printf("%i", num);
+			break;
+
+			case 'f':
 			f = va_arg(mychars, double);
-			{
-				if (!is_first)
-				{
-					printf(", ");
-				}
-			}
 			printf("%f", f);
-		}
-		else if (*format_ptr == 's')
-		{
-			s = va_arg(mychars, char *);
-			{
-				printf(", ");
-			}
-			if (s == NULL)
+			break;
+
+			case 's':
+			str = va_arg(mychars, char*);
+			if (str == NULL)
 				printf("(nil)");
 			else
-				printf("%s", s);
-		}
-		format_ptr++;
-		is_first = 0;
-	}
-	printf("\n");
+				printf("%s", str);
+			break;
 
+			default:
+			x++;
+			continue;
+
+		}
+		if (format[x + 1] != '\0')
+			printf(", ");
+		x++;
+	}
 	va_end(mychars);
+	printf("\n");
 }
