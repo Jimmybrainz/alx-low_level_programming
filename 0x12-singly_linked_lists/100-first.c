@@ -1,4 +1,4 @@
-#inlcude "lists.h"
+#include <stdio.h>
 
 /**
  *print_before_main - This function prints a specific message before the
