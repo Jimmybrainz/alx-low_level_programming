@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/*using a constructor*/
+void print_before_main(void)__attribute__((constructor));
+
 /**
  *print_before_main - This function prints a specific message before the
  *main function is executed
